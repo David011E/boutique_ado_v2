@@ -21,6 +21,4 @@ def add_to_bag(request, item_id):
     
     request.session['bag'] = bag     # then over write the variable in the session with the updated session
 
-    print(request.session['bag'])
-
     return redirect(redirect_url)
