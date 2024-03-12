@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 from pathlib import Path
+if os.path.isfile('env.py'):
+    import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -172,13 +174,9 @@ FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
 STRIPE_CURRENCY = 'usd'
 
-# Set default values for Stripe keys using environment variables
-os.environ.setdefault('STRIPE_PUBLIC_KEY', 'pk_test_51JZTOFFrxPi5qjzPLCD0eNawrStnPmthgDSKBss5HzmxohC3zzSNx7V5Am5JpzMVeoe8Ddr3upiOSXL1BcdLyRUK00CV9Yvk6m')
-os.environ.setdefault('STRIPE_SECRET_KEY', 'sk_test_51JZTOFFrxPi5qjzP2uFgNT4yGnmANfbRa0Xb2Fc5ismTeFvdi7BoCSk58T9s52NaCsMzrwdgkCKZzXufLisCi3Rv00D6tt8sx4')
-
 # Retrieve Stripe keys from environment variables
-STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY')
-STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
 
 
 # Default primary key field type
