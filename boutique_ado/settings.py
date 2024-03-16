@@ -174,6 +174,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
 STRIPE_CURRENCY = 'usd'
+DEFAULT_FROM_EMAIL = 'boutiqueado@example.com'
 
 # Retrieve Stripe keys from environment variables
 STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')
