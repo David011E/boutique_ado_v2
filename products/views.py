@@ -46,6 +46,9 @@ def all_products(request):
             
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
+    else:
+        # No query parameters provided, so simply return all products
+        pass
 
     current_sorting = f'{sort}_{direction}'
 
@@ -57,6 +60,7 @@ def all_products(request):
     }
 
     return render(request, 'products/products.html', context)
+
 
 
 def product_detail(request, product_id):
